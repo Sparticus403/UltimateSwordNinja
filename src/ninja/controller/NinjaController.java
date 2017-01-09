@@ -32,4 +32,10 @@ public class NinjaController {
 		return ninjaFrame;
 	}
 	
+	
+	
+	
+	
+	
+	
 }
