@@ -11,6 +11,7 @@ import ninja.model.ninja;
  * @author Todd Williamson
  *
  */
+
 public class NinjaPanel extends JPanel
 {
 	private NinjaController baseController;

@@ -13,11 +13,14 @@ import java.util.ArrayList;
 public class NinjaController {
 
 	private NinjaFrame ninjaFrame;
-	
+	private ArrayList<Enemies> enemyList;
 	
 	
 	public NinjaController()
 	{
+		enemyList = new ArrayList<Enemies>();
+		buildEnemyList();
+		
 		ninjaFrame = new NinjaFrame(this);
 	}
 	
@@ -27,9 +30,26 @@ public class NinjaController {
 	}
 	
 	
+	private void buildEnemyList()
+	{ 
+		enemyList.add(new Bear("Bear"));  //might be fixed when the enemies fully made
+		enemyList.add(new Wolf("Wolf"));
+		enemyList.add(new Samurai("Samurai"));
+	}
+	
+	
 	public NinjaFrame getNinjaFrame()
 	{
 		return ninjaFrame;
 	}
+	
+	public ArrayList<Enemies> getEnemyList()
+	{
+		return enemyList;
+	}
+	
+	
+	
+	
 	
 }
