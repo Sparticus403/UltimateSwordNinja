@@ -23,6 +23,10 @@ public abstract class Enemies {
 	{
 		return health;
 	}
+	public void setHealth(int health)
+	{
+		this.health = health;
+	}
 	
 	public int getAttackPoints()
 	{
