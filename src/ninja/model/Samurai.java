@@ -1,5 +1,5 @@
 package ninja.model;
 
-public class Samurai {
+public class Samurai extends Enemies{
 
 }
