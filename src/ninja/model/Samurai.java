@@ -1,5 +1,9 @@
 package ninja.model;
-
+/**
+ * 
+ * @author Joe Wrigley
+ *Created methods to create the objects within here, and give stats / moves.
+ */
 public class Samurai extends Enemies{
 
 	
@@ -11,6 +15,18 @@ public class Samurai extends Enemies{
 	public Samurai(String name)
 	{
 		super(name);
-		this.setHealth(122);
+		this.setHealth(67);
 	}
+	
+	public int superSpecialSlash()
+	{
+		return 1;
+	}
+	
+	public int trippingSlash()
+	{
+		return (int) (Math.random() * 20) + 1;
+		
+	}
+	
 }

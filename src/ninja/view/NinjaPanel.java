@@ -22,6 +22,7 @@ public class NinjaPanel extends JPanel
 	private JLabel attackLabel;
 	private JTextArea reactionDisplay;
 	private JTextArea enemyDisplay;
+
 	
 	public NinjaPanel(NinjaController baseController)
 	{
@@ -51,11 +52,13 @@ public class NinjaPanel extends JPanel
 		this.add(attackLabel);
 		this.add(reactionDisplay);
 		this.add(enemyDisplay);
+
 	}
 	
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.WEST, attackButton, 10, SpringLayout.WEST, this);
+
 		baseLayout.putConstraint(SpringLayout.NORTH, attackButton, 0, SpringLayout.NORTH, rangeAttackButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, rangeAttackButton, 0, SpringLayout.NORTH, luckyAttackButton);
 		baseLayout.putConstraint(SpringLayout.EAST, rangeAttackButton, -6, SpringLayout.WEST, luckyAttackButton);
@@ -65,6 +68,7 @@ public class NinjaPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, attackLabel, -6, SpringLayout.NORTH, attackButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, reactionDisplay, 6, SpringLayout.SOUTH, attackButton);
 		baseLayout.putConstraint(SpringLayout.WEST, reactionDisplay, 10, SpringLayout.WEST, attackButton);
+
 	}
 	
 	private void setupListeners()
