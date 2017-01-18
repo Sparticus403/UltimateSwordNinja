@@ -1,9 +1,5 @@
 package ninja.model;
-/**
- * 
- * @author Joe Wrigley
- *Created methods to create the objects within here, and give stats / moves.
- */
+
 public class Ninja extends Hero {
 
 	public Ninja()
@@ -14,6 +10,7 @@ public class Ninja extends Hero {
 	public Ninja(String name)
 	{
 		super(name);
+
 		this.setHealth(30);
 	}
 	
