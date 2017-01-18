@@ -53,7 +53,16 @@ public class NinjaController {
 	{
 		while(1 < 2)
 		{
-			
+			while(playerHealth > 0)
+			{
+			while (health > 0)
+				{
+					randomy eney attack
+					your attack
+				}
+			text that says you go home safe
+			}
+			text that says you got beatn up brooo
 		}
 	}
 	
