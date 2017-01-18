@@ -49,7 +49,13 @@ public class NinjaController {
 	}
 	
 	
-	
+	public void playGame()
+	{
+		while(1 < 2)
+		{
+			
+		}
+	}
 	
 	
 }

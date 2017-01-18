@@ -1,18 +1,15 @@
 package ninja.model;
 
-/**
- * 
- * @author joey wrigley / todd williamson
- * Both assisted in adding the code to making hp and attack work as well with names!
- *
- */
-public abstract class Enemies {
-	
+public abstract class Hero {
+	/**
+	 * Joe Wrigley
+	 * made all inside methods and declarations
+	 */
 	private int health;
 	private String name;
 	
 	
-	public Enemies(String name)
+	public Hero(String name)
 	{
 		this.name = name;
 	}
@@ -26,7 +23,7 @@ public abstract class Enemies {
 	{
 		this.health = health;
 	}
-	
+
 	
 	public String getName()
 	{
@@ -40,3 +37,5 @@ public abstract class Enemies {
 	
 	
 }
+
+
