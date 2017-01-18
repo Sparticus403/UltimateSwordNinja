@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.*;
-import ninja.model.ninja;
+import ninja.model.Ninja;
 /**
  * 
  * @author Todd Williamson
