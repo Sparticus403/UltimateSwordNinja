@@ -27,6 +27,7 @@ public class NinjaController {
 	public void start()
 	{
 		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!");
+		
 	}
 	
 	
@@ -48,23 +49,26 @@ public class NinjaController {
 		return enemyList;
 	}
 	
+//	
+//	public void playGame()
+//	{
+//		while(1 < 2)
+//		{
+			
+			// says an enemy finds you in your house and attacks .getEnemyList
+////			while(playerHealth > 0)
 	
-	public void playGame()
-	{
-		while(1 < 2)
-		{
-			while(playerHealth > 0)
-			{
-			while (health > 0)
-				{
-					randomy eney attack
-					your attack
-				}
-			text that says you go home safe
-			}
-			text that says you got beatn up brooo
-		}
-	}
+////			{
+////			while (health > 0)
+////				{
+////					randomy eney attack
+////					your attack
+////				}
+////			text that says you go home safe
+////			}
+////			text that says you got beatn up brooo
+//		}
+//	}
 	
 	
 }
