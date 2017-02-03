@@ -11,7 +11,7 @@ public class Ninja extends Hero {
 	{
 		super(name);
 
-		this.setHealth(30);
+		this.setPlayerHealth(30);
 	}
 	
 	public int luckyHit()
@@ -26,6 +26,6 @@ public class Ninja extends Hero {
 	
 	public int attack()
 	{
-		return this.getHealth() / (5/2);
+		return this.getPlayerHealth() / (5/2);
 	}
 }

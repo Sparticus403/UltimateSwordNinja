@@ -1,4 +1,5 @@
 package ninja.model;
+import ninja.view.*;
 /**
  * 
  * @author Joe Wrigley
@@ -21,7 +22,8 @@ public class Bear extends Enemies
 	public int gnaw()
 	{
 		return 1;
-		enemyDisplay.displayMessage("he gnawed you :(");
+
+		
 		//display this with words on the field frame that you are making
 	}
 	

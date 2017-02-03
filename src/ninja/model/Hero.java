@@ -5,7 +5,7 @@ public abstract class Hero {
 	 * Joe Wrigley
 	 * made all inside methods and declarations
 	 */
-	private int health;
+	private int playerHealth;
 	private String name;
 	
 	
@@ -15,13 +15,13 @@ public abstract class Hero {
 	}
 	
 	
-	public int getHealth()
+	public int getPlayerHealth()
 	{
-		return health;
+		return playerHealth;
 	}
-	public void setHealth(int health)
+	public void setPlayerHealth(int playerHealth)
 	{
-		this.health = health;
+		this.playerHealth = playerHealth;
 	}
 
 	
