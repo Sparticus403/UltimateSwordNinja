@@ -10,7 +10,8 @@ import ninja.model.*;
 import ninja.view.NinjaFrame;
 import java.util.ArrayList;
 import ninja.model.Hero;
-
+//10/10 love the name
+//your narrator is very observant
 public class NinjaController {
 
 	private NinjaFrame ninjaFrame;
@@ -84,10 +85,10 @@ public class NinjaController {
 //					 if(play = true)
 //					 {
 //						 {
+//					getCurrentEnemy
 //					 player attack
 //					 while (health >= 0)
 //					 	{
-	
 //						 monster.currentEnemy(attack)
 //						 			monster.currentEnemy(displaywhichoneitisinpanel)
 //						 	if(enemyhealth <=0)
@@ -95,7 +96,6 @@ public class NinjaController {
 //						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
 //					 			}
 //					 	}
-//					 		
 //						 	}
 //					 }
 //					 else
@@ -107,5 +107,6 @@ public class NinjaController {
 //		}
 //	}
 	
-	
+//your GUI is pretty nice. i think the idea for ur game is pretty coool!! follow me on instagrame - psaineeraj
+	//Are you planning on implementing a random drop?
 }
