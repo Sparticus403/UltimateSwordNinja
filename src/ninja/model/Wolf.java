@@ -23,17 +23,7 @@ public class Wolf extends Enemies{
 	}
 	
 	
-	public int bite()
-	{
-		return 2;
-	}
-	
-	public int chew()
-	{
-		return 14;
-	}
-	
-	public int claw()
+	public int attack()
 	{
 		return 5;
 	}
