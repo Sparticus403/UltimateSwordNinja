@@ -49,7 +49,7 @@ public class NinjaController {
 		return enemyList;
 	}
 	
-//	
+	
 //	public void playGame()
 //	{
 //		while(1 < 2)
