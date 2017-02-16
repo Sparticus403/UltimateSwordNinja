@@ -30,10 +30,18 @@ public class NinjaController {
 	
 	public void start()
 	{
-		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!");
+		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
 		
-		keepPlaying();
-//		playGame();
+		
+		if(keepPlaying())
+		{
+			playGame();	
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(ninjaFrame, "YOU DIED, TRY AGAIN ANOTHER TIME");
+		}
+
 	}
 	
 	
@@ -46,7 +54,7 @@ public class NinjaController {
 	
 	public void buildHeroList()
 	{
-		heroList.add(new Ninja("ninja"));
+		heroList.add(new Ninja("Ninja"));
 	}
 	
 	public NinjaFrame getNinjaFrame()
@@ -68,44 +76,45 @@ public class NinjaController {
 		if(heroCurrent.getPlayerHealth() <= 0)
 		{
 			play = false;
-			JOptionPane.showMessageDialog(ninjaFrame, "YOU DIED");
 		}
 		
 		return play;
 	}
 	
-//	
-//	
-//	public void playGame()
-//	{
-//		while(1 < 2)
-//		{
-//			{
-//				 while(play = true)
-//					 if(play = true)
-//					 {
-//						 {
-//					getCurrentEnemy
-//					 player attack
-//					 while (health >= 0)
-//					 	{
-//						 monster.currentEnemy(attack)
-//						 			monster.currentEnemy(displaywhichoneitisinpanel)
-//						 	if(enemyhealth <=0)
-//					 			{
-//						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
-//					 			}
-//					 	}
-//						 	}
-//					 }
-//					 else
-//					 {
-//						 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
-//						 heroCurrent.setPlayerHealth(30);
-//					 }
-//		   }
-//		}
-//	}
+	
+	
+	public void playGame()
+	{
+		while(1 < 2)
+		{
+			
+				 while(keepPlaying())
+				 {
+					 if(keepPlaying())
+					 
+						 {
+					getCurrentEnemy
+					 player.getAttackfrombutton
+					 
+						 monster.currentEnemy(attack)
+						 	if(enemyhealth <=0)
+					 			{
+						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
+						 		
+						 		JOptionPane.showMessageDialog(ninjaFrame, "Another one appeared though");
+						 		getnewenemy
+						 		
+								 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
+								 heroCurrent.setPlayerHealth(30);
+								 
+								 JOptionPane.showMessageDialog(ninjaFrame, "You went to find another one");
+					 			}
+					 	
+						 	}
+				 }
+		   
+		}
+	}
 	
 //your GUI is pretty nice. i think the idea for ur game is pretty coool!! follow me on instagrame - psaineeraj
 	//Are you planning on implementing a random drop?
