@@ -54,29 +54,29 @@ public class NinjaController {
 		enemyList.add(new Wolf("Wolf"));
 		enemyList.add(new Samurai("Samurai"));
 	}
-	
-	public Enemies randomEnemyFromList()
-	{
-		getEnemyList();
-		Enemies currentEnemy = enemyList.get(0);
-		
-		int randomNumber = (int)(Math.random()*14);
-		
-		if(randomNumber <= 5)
-		{
-			currentEnemy = enemyList.get(1);
-		}
-		else if(randomNumber > 5 && randomNumber <= 10)
-		{
-			enemyList.get(0);
-		}
-		else if(randomNumber > 10)
-		{
-			enemyList.get(2);
-		}
-		return currentEnemy;
-	}
-	
+//	
+//	public Enemies randomEnemyFromList()
+//	{
+//		getEnemyList();
+//		Enemies currentEnemy = enemyList.get(0);
+//		
+//		int randomNumber = (int)(Math.random()*14);
+//		
+//		if(randomNumber <= 5)
+//		{
+//			currentEnemy = enemyList.get(1);
+//		}
+//		else if(randomNumber > 5 && randomNumber <= 10)
+//		{
+//			enemyList.get(0);
+//		}
+//		else if(randomNumber > 10)
+//		{
+//			enemyList.get(2);
+//		}
+//		return currentEnemy;
+//	}
+//	
 	public void buildHeroList()
 	{
 		heroList.add(new Ninja("Ninja"));
@@ -115,7 +115,7 @@ public class NinjaController {
 			
 				 while(keepPlaying())
 				 {
-					Hero currentHero =heroList.get(0);
+					Hero currentHero = heroList.get(0);
 					 		
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
@@ -123,7 +123,7 @@ public class NinjaController {
 					
 								
 					 				
-					currentEnemy.setHealth(currentEnemy.getHealth() - chosenAttackFROMTHEGUILOL;); 
+					currentEnemy.setHealth(currentEnemy.getHealth() - damageDoneChosenInTheGUI;); 
 					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
 					 
 						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
