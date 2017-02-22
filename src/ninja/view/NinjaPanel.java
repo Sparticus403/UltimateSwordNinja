@@ -86,14 +86,32 @@ public class NinjaPanel extends JPanel
 	private void setupListeners()
 	{
 		attackButton.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent click)
-					{
-						String response = "You attacked the enemy";
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String response = "You attacked the enemy!";
 						
-						reactionDisplay.setText(response);
-					}
-				});
+				reactionDisplay.setText(response);
+			}
+		});
+		rangeAttackButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String response = "You threw a star at the enemy!";
+				
+				reactionDisplay.setText(response);
+			}
+		});
+		luckyAttackButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String response = "You used a lucky attack!";
+				
+				reactionDisplay.setText(response);
+			}
+		});
 	}
 
 }
