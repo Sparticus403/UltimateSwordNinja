@@ -10,6 +10,8 @@ import ninja.model.*;
 import ninja.view.NinjaFrame;
 import java.util.ArrayList;
 import ninja.model.Hero;
+import java.util.Random;
+import ninja.view.*;
 //10/10 love the name
 //your narrator is very observant
 public class NinjaController {
@@ -17,6 +19,7 @@ public class NinjaController {
 	private NinjaFrame ninjaFrame;
 	private ArrayList<Enemies> enemyList;
 	private ArrayList<Hero> heroList;
+	 private Random randomGenerator;
 	
 	
 	public NinjaController()
@@ -30,10 +33,18 @@ public class NinjaController {
 	
 	public void start()
 	{
-		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!");
+		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
 		
-		keepPlaying();
-//		playGame();
+		
+		if(keepPlaying())
+		{
+			playGame();	
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(ninjaFrame, "YOU DIED, TRY AGAIN ANOTHER TIME");
+		}
+
 	}
 	
 	
@@ -68,7 +79,7 @@ public class NinjaController {
 	
 	public void buildHeroList()
 	{
-		heroList.add(new Ninja("ninja"));
+		heroList.add(new Ninja("Ninja"));
 	}
 	
 	public NinjaFrame getNinjaFrame()
@@ -90,44 +101,54 @@ public class NinjaController {
 		if(heroCurrent.getPlayerHealth() <= 0)
 		{
 			play = false;
-			JOptionPane.showMessageDialog(ninjaFrame, "YOU DIED");
 		}
 		
 		return play;
 	}
 	
-//	
-//	
-//	public void playGame()
-//	{
-//		while(1 < 2)
-//		{
-//			{
-//				 while(play = true)
-//					 if(play = true)
-//					 {
-//						 {
-//					getCurrentEnemy
-//					 player attack
-//					 while (health >= 0)
-//					 	{
-//						 monster.currentEnemy(attack)
-//						 			monster.currentEnemy(displaywhichoneitisinpanel)
-//						 	if(enemyhealth <=0)
-//					 			{
-//						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
-//					 			}
-//					 	}
-//						 	}
-//					 }
-//					 else
-//					 {
-//						 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
-//						 heroCurrent.setPlayerHealth(30);
-//					 }
-//		   }
-//		}
-//	}
+	
+	
+	public void playGame()
+	{
+		while(1 < 2)
+		{
+			
+				 while(keepPlaying())
+				 {
+					Hero currentHero =heroList.get(0);
+					 		
+					int index = randomGenerator.nextInt(enemyList.size());
+					Enemies currentEnemy = enemyList.get(index);
+						JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a" + currentEnemy);
+					
+								
+					 				
+					currentEnemy.setHealth(currentEnemy.getHealth() - chosenAttackFROMTHEGUILOL;); 
+					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
+					 
+						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
+						 
+						 
+						 
+						 
+						 	if(currentEnemy.getHealth() <=0)
+					 			{
+						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
+						 		
+						 		
+								 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
+								 currentHero.setPlayerHealth(30);
+								 
+								 JOptionPane.showMessageDialog(ninjaFrame, "You went to find another one");
+					 			}
+					 	
+						 	
+				 }
+				 
+				 JOptionPane.showMessageDialog(ninjaFrame, "You DIED and cant do anything, restart to try again.");
+		   
+		}
+	}
 	
 //your GUI is pretty nice. i think the idea for ur game is pretty coool!! follow me on instagrame - psaineeraj
 	//Are you planning on implementing a random drop?
