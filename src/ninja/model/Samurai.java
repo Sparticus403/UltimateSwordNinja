@@ -18,7 +18,12 @@ public class Samurai extends Enemies{
 		this.setHealth(67);
 	}
 	
-	public int attack()
+	public int superSpecialSlash()
+	{
+		return 1;
+	}
+	
+	public int trippingSlash()
 	{
 		return (int) (Math.random() * 20) + 1;
 		
