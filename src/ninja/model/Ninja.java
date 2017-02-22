@@ -21,7 +21,7 @@ public class Ninja extends Hero {
 	
 	public int rangeAttack()
 	{
-		return 5;
+		return 6;
 	}
 	
 	public int attack()

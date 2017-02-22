@@ -10,6 +10,8 @@ import ninja.model.*;
 import ninja.view.NinjaFrame;
 import java.util.ArrayList;
 import ninja.model.Hero;
+import java.util.Random;
+import ninja.view.*;
 //10/10 love the name
 //your narrator is very observant
 public class NinjaController {
@@ -17,6 +19,7 @@ public class NinjaController {
 	private NinjaFrame ninjaFrame;
 	private ArrayList<Enemies> enemyList;
 	private ArrayList<Hero> heroList;
+	 private Random randomGenerator;
 	
 	
 	public NinjaController()
@@ -90,28 +93,37 @@ public class NinjaController {
 			
 				 while(keepPlaying())
 				 {
-					 if(keepPlaying())
+					Hero currentHero =heroList.get(0);
+					 		
+					int index = randomGenerator.nextInt(enemyList.size());
+					Enemies currentEnemy = enemyList.get(index);
+						JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a" + currentEnemy);
+					
+								
+					 				
+					currentEnemy.setHealth(currentEnemy.getHealth() - chosenAttackFROMTHEGUILOL;); 
+					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
 					 
-						 {
-					getCurrentEnemy
-					 player.getAttackfrombutton
-					 
-						 monster.currentEnemy(attack)
-						 	if(enemyhealth <=0)
+						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
+						 
+						 
+						 
+						 
+						 	if(currentEnemy.getHealth() <=0)
 					 			{
 						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
 						 		
-						 		JOptionPane.showMessageDialog(ninjaFrame, "Another one appeared though");
-						 		getnewenemy
 						 		
 								 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
-								 heroCurrent.setPlayerHealth(30);
+								 currentHero.setPlayerHealth(30);
 								 
 								 JOptionPane.showMessageDialog(ninjaFrame, "You went to find another one");
 					 			}
 					 	
-						 	}
+						 	
 				 }
+				 
+				 JOptionPane.showMessageDialog(ninjaFrame, "You DIED and cant do anything, restart to try again.");
 		   
 		}
 	}
