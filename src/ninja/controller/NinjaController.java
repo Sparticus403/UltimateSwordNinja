@@ -17,15 +17,17 @@ import ninja.view.*;
 public class NinjaController {
 
 	private NinjaFrame ninjaFrame;
-	private ArrayList<Enemies> enemyList;
-	private ArrayList<Hero> heroList;
+	public ArrayList<Enemies> enemyList;
+	public ArrayList<Hero> heroList;
 	 private Random randomGenerator;
+//	 public int buttonDamage;
 	
 	
 	public NinjaController()
 	{
 		enemyList = new ArrayList<Enemies>();
 		heroList = new ArrayList<Hero>();
+		buildEnemyList();
 		buildEnemyList();
 		
 		ninjaFrame = new NinjaFrame(this);
@@ -35,6 +37,7 @@ public class NinjaController {
 	{
 		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
 		
+		buildHeroList();
 		
 		if(keepPlaying())
 		{
@@ -82,6 +85,11 @@ public class NinjaController {
 		heroList.add(new Ninja("Ninja"));
 	}
 	
+	public ArrayList<Hero> getHeroList()
+	{
+		return heroList;
+	}
+	
 	public NinjaFrame getNinjaFrame()
 	{
 		return ninjaFrame;
@@ -106,6 +114,29 @@ public class NinjaController {
 		return play;
 	}
 	
+	public int getAttack()
+	{
+		int damage = heroList.get(0).attack();
+				
+			return damage;
+	}
+	
+	public int getRangedAttack()
+	{
+		int damage = heroList.get(0).rangeAttack();
+		
+		return damage;
+		
+	
+	}
+	
+	public int getLuckyAttack()
+	{
+		int damage = heroList.get(0).luckyHit();
+		
+		return damage;
+	}
+	
 	
 	
 	public void playGame()
@@ -116,6 +147,8 @@ public class NinjaController {
 				 while(keepPlaying())
 				 {
 					Hero currentHero = heroList.get(0);
+					
+					int buttonDamage = ( );
 					 		
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
@@ -123,7 +156,7 @@ public class NinjaController {
 					
 								
 					 				
-					currentEnemy.setHealth(currentEnemy.getHealth() - damageDoneChosenInTheGUI;); 
+					currentEnemy.setHealth(currentEnemy.getHealth() - buttonDamage); 
 					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
 					 
 						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());

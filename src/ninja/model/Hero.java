@@ -1,4 +1,4 @@
-package ninja.model;
+ package ninja.model;
 
 public abstract class Hero {
 	/**
