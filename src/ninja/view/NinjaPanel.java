@@ -36,8 +36,8 @@ public class NinjaPanel extends JPanel
 		this.attackLabel = new JLabel("Use: ");
 		this.reactionDisplay = new JTextArea(5, 25);
 		this.enemyDisplay = new JTextArea(5, 25);
-		this.enemyHealthLabel = new JLabel("Your Health: ");
-		this.heroHealthLabel = new JLabel("Enemy Health: ");
+		this.enemyHealthLabel = new JLabel("Your Health: " + baseController.heroList.get(0).getPlayerHealth());
+		this.heroHealthLabel = new JLabel("Enemy Health: " + baseController.enemyList.get(0).getHealth() + "     " + baseController.getName());
 		
 		setupPanel();
 		setupLayout();
@@ -83,35 +83,58 @@ public class NinjaPanel extends JPanel
 
 	}
 	
+	public int getAttackButtonDamage()
+	{
+		int buttonDamage = baseController.getAttack();
+		return buttonDamage;
+	}
+	
+	public int getRangeButtonDamage()
+	{
+		int buttonDamage = baseController.getRangedAttack();
+		return buttonDamage;
+	}
+	
+	public int getLuckyButtonDamage()
+	{
+		int buttonDamage = baseController.getLuckyAttack();
+		return buttonDamage;
+	}
+	
 	private void setupListeners()
 	{
 		attackButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				String attackResponse = "Damage dealt: ";
 				String response = "You attacked the enemy!";
-						
-				reactionDisplay.setText(response);
+				reactionDisplay.setText(response + "\n" + attackResponse + getAttackButtonDamage());
 			}
 		});
 		rangeAttackButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				int buttonDamage = baseController.getRangedAttack();
+				String attackResponse = "Damage dealt: ";
 				String response = "You threw a star at the enemy!";
-				
-				reactionDisplay.setText(response);
+				reactionDisplay.setText(response + "\n" + attackResponse + buttonDamage);
 			}
 		});
 		luckyAttackButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String response = "You used a lucky attack!";
 				
-				reactionDisplay.setText(response);
+				int buttonDamage = baseController.getLuckyAttack();
+				String attackResponse = "Damage dealt: ";
+				String response = "You used a lucky attack!";
+				reactionDisplay.setText(response + "\n" + attackResponse + buttonDamage);
 			}
 		});
 	}
+	
+
 
 }

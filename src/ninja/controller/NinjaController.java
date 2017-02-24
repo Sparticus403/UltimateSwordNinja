@@ -17,9 +17,10 @@ import ninja.view.*;
 public class NinjaController {
 
 	private NinjaFrame ninjaFrame;
-	private ArrayList<Enemies> enemyList;
-	private ArrayList<Hero> heroList;
-	 private Random randomGenerator;
+	public ArrayList<Enemies> enemyList;
+	public ArrayList<Hero> heroList;
+	private Random randomGenerator;
+	public NinjaPanel basePanel;
 	
 	
 	public NinjaController()
@@ -27,13 +28,16 @@ public class NinjaController {
 		enemyList = new ArrayList<Enemies>();
 		heroList = new ArrayList<Hero>();
 		buildEnemyList();
-		
+		buildHeroList();
+		randomEnemyFromList();
 		ninjaFrame = new NinjaFrame(this);
 	}
 	
 	public void start()
 	{
 		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
+		
+		buildEnemyList();
 		
 		
 		if(keepPlaying())
@@ -60,26 +64,34 @@ public class NinjaController {
 		getEnemyList();
 		Enemies currentEnemy = enemyList.get(0);
 		
-		int randomNumber = (int)(Math.random()*14);
+		int randomNumber = (int)(Math.random()*15);
 		
-		if(randomNumber <= 5)
+		if(randomNumber <= 6)
 		{
 			currentEnemy = enemyList.get(1);
 		}
-		else if(randomNumber > 5 && randomNumber <= 10)
+		else if(randomNumber > 6 && randomNumber <= 12)
 		{
-			enemyList.get(0);
+			currentEnemy = enemyList.get(0);
 		}
-		else if(randomNumber > 10)
+		else if(randomNumber > 12 && randomNumber <= 15)
 		{
-			enemyList.get(2);
+			currentEnemy = enemyList.get(2);
 		}
+		
+		enemyList.set(0, currentEnemy);
+		
 		return currentEnemy;
 	}
 	
 	public void buildHeroList()
 	{
 		heroList.add(new Ninja("Ninja"));
+	}
+	
+	public ArrayList<Hero> getHeroList()
+	{
+		return heroList;
 	}
 	
 	public NinjaFrame getNinjaFrame()
@@ -91,6 +103,36 @@ public class NinjaController {
 	{
 		return enemyList;
 	}
+	
+	 public int getAttack()
+	 {
+	 int damage = heroList.get(0).attack();
+
+	 return damage;
+	 }
+
+	 public int getRangedAttack()
+	 {
+	 int damage = heroList.get(0).rangeAttack();
+
+	 return damage;
+
+
+	 }
+
+	 public int getLuckyAttack()
+	 {
+	 int damage = heroList.get(0).luckyHit();
+
+	 return damage;
+	 }
+	 
+	 public String getName()
+	 {
+	 String name = enemyList.get(0).getName();
+
+	 return name;
+	 }
 	
 	public boolean keepPlaying()
 	{
@@ -115,15 +157,15 @@ public class NinjaController {
 			
 				 while(keepPlaying())
 				 {
-					Hero currentHero =heroList.get(0);
-					 		
+					Hero currentHero = heroList.get(0);
+//					int buttonDamage = ""; 		
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
 						JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a" + currentEnemy);
 					
 								
 					 				
-					currentEnemy.setHealth(currentEnemy.getHealth() - chosenAttackFROMTHEGUILOL;); 
+//					currentEnemy.setHealth(currentEnemy.getHealth() - basePanel.buttonDamage); 
 					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
 					 
 						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());

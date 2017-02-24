@@ -35,6 +35,20 @@ public abstract class Hero {
 		this.name = name;
 	}
 	
+	public int rangeAttack()
+	{
+		return 0;
+	}
+	
+	public int attack()
+	{
+		return 0;
+	}
+	
+	public int luckyHit()
+	{
+		return 0;
+	}
 	
 }
 
