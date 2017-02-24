@@ -29,6 +29,7 @@ public class NinjaController {
 		heroList = new ArrayList<Hero>();
 		buildEnemyList();
 		buildEnemyList();
+		randomEnemyFromList();
 		
 		ninjaFrame = new NinjaFrame(this);
 	}
@@ -57,29 +58,33 @@ public class NinjaController {
 		enemyList.add(new Wolf("Wolf"));
 		enemyList.add(new Samurai("Samurai"));
 	}
-//	
-//	public Enemies randomEnemyFromList()
-//	{
-//		getEnemyList();
-//		Enemies currentEnemy = enemyList.get(0);
-//		
-//		int randomNumber = (int)(Math.random()*14);
-//		
-//		if(randomNumber <= 5)
-//		{
-//			currentEnemy = enemyList.get(1);
-//		}
-//		else if(randomNumber > 5 && randomNumber <= 10)
-//		{
-//			enemyList.get(0);
-//		}
-//		else if(randomNumber > 10)
-//		{
-//			enemyList.get(2);
-//		}
-//		return currentEnemy;
-//	}
-//	
+	
+	public Enemies randomEnemyFromList()
+	{
+		getEnemyList();
+		Enemies currentEnemy = enemyList.get(0);
+		
+		int randomNumber = (int)(Math.random()*15);
+		
+		if(randomNumber <= 5)
+		{
+			currentEnemy = enemyList.get(1);
+		}
+		else if(randomNumber > 5 && randomNumber <= 10)
+		{
+			enemyList.get(0);
+		}
+		else if(randomNumber > 10 && randomNumber <= 15)
+		{
+			enemyList.get(2);
+		}
+		
+		enemyList.set(0, currentEnemy);
+		
+		
+		return currentEnemy;
+	}
+	
 	public void buildHeroList()
 	{
 		heroList.add(new Ninja("Ninja"));
@@ -99,6 +104,15 @@ public class NinjaController {
 	{
 		return enemyList;
 	}
+	
+	
+	public String getName()
+	{
+		String name = enemyList.get(0).getName();
+		
+		return name;
+	}
+	
 	
 	public boolean keepPlaying()
 	{
@@ -148,7 +162,7 @@ public class NinjaController {
 				 {
 					Hero currentHero = heroList.get(0);
 					
-					int buttonDamage = ( );
+					int buttonDamage = basepanel.buttonDamage;
 					 		
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
