@@ -1,5 +1,4 @@
 package ninja.model;
-import ninja.view.*;
 /**
  * 
  * @author Joe Wrigley
