@@ -162,7 +162,7 @@ public class NinjaController {
 				 {
 					Hero currentHero = heroList.get(0);
 					
-					int buttonDamage = basepanel.buttonDamage;
+					int buttonDamage = basePanel.buttonDamage;
 					 		
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
