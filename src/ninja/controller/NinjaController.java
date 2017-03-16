@@ -167,24 +167,23 @@ public class NinjaController {
 				 while(keepPlaying())
 				 {
 					Hero currentHero = heroList.get(0);
-<<<<<<< HEAD
+
 //					int buttonDamage = ""; 		
-=======
+
 					
-					int buttonDamage = basepanel.buttonDamage;
+					int buttonDamage = 0;//basepanel.buttonDamage;
 					 		
->>>>>>> GearShift24/master
+
 					int index = randomGenerator.nextInt(enemyList.size());
 					Enemies currentEnemy = enemyList.get(index);
 						JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a" + currentEnemy);
 					
 								
-					 				
-<<<<<<< HEAD
+
 //					currentEnemy.setHealth(currentEnemy.getHealth() - basePanel.buttonDamage); 
-=======
+
 					currentEnemy.setHealth(currentEnemy.getHealth() - buttonDamage); 
->>>>>>> GearShift24/master
+
 					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has" + currentEnemy.getHealth() + "hp left!");
 					 
 						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
