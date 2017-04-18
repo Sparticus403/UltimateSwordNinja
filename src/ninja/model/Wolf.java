@@ -18,23 +18,23 @@ public class Wolf extends Enemies{
 	public Wolf(String name)
 	{
 		super(name);
-
 		this.setHealth(32);
+		this.setMaxHealth(32);
 	}
 	
-	
-	public int bite()
+	public int attack()
 	{
-		return 2;
+		int i = (int) Math.random() * 1;
+		
+		if( i == 0)
+		{
+			return 6;
+		}
+		else
+		{
+			return 9;
+		}
+		
 	}
-	
-	public int chew()
-	{
-		return 14;
-	}
-	
-	public int claw()
-	{
-		return 5;
-	}
+
 }

@@ -36,8 +36,8 @@ public class NinjaPanel extends JPanel
 		this.attackLabel = new JLabel("Use: ");
 		this.reactionDisplay = new JTextArea(5, 25);
 		this.enemyDisplay = new JTextArea(5, 25);
-		this.enemyHealthLabel = new JLabel("Your Max Health: " + baseController.heroList.get(0).getPlayerHealth());
-		this.heroHealthLabel = new JLabel(baseController.getName() + "Enemy Max Health: " + baseController.enemyList.get(0).getHealth());
+		this.enemyHealthLabel = new JLabel(baseController.getName() + " Max Health: " + baseController.enemyList.get(0).getHealth());
+		this.heroHealthLabel = new JLabel("Your Max Health: " + baseController.heroList.get(0).getPlayerHealth());
 		
 		setupPanel();
 		setupLayout();
@@ -67,10 +67,6 @@ public class NinjaPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, attackButton, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, enemyDisplay, 61, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, enemyDisplay, 0, SpringLayout.EAST, reactionDisplay);
-		baseLayout.putConstraint(SpringLayout.NORTH, enemyHealthLabel, 5, SpringLayout.NORTH, attackButton);
-		baseLayout.putConstraint(SpringLayout.WEST, enemyHealthLabel, 4, SpringLayout.EAST, luckyAttackButton);
-		baseLayout.putConstraint(SpringLayout.WEST, heroHealthLabel, 0, SpringLayout.WEST, reactionDisplay);
-		baseLayout.putConstraint(SpringLayout.SOUTH, heroHealthLabel, -6, SpringLayout.NORTH, enemyDisplay);
 		baseLayout.putConstraint(SpringLayout.NORTH, attackButton, 0, SpringLayout.NORTH, rangeAttackButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, rangeAttackButton, 0, SpringLayout.NORTH, luckyAttackButton);
 		baseLayout.putConstraint(SpringLayout.EAST, rangeAttackButton, -6, SpringLayout.WEST, luckyAttackButton);
@@ -80,6 +76,10 @@ public class NinjaPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, attackLabel, -6, SpringLayout.NORTH, attackButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, reactionDisplay, 6, SpringLayout.SOUTH, attackButton);
 		baseLayout.putConstraint(SpringLayout.WEST, reactionDisplay, 10, SpringLayout.WEST, attackButton);
+		baseLayout.putConstraint(SpringLayout.WEST, enemyHealthLabel, 22, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, enemyHealthLabel, -6, SpringLayout.NORTH, enemyDisplay);
+		baseLayout.putConstraint(SpringLayout.NORTH, heroHealthLabel, 0, SpringLayout.NORTH, attackLabel);
+		baseLayout.putConstraint(SpringLayout.EAST, heroHealthLabel, 0, SpringLayout.EAST, luckyAttackButton);
 
 	}
 	
@@ -90,10 +90,17 @@ public class NinjaPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				String response = "You attacked the enemy!";
-						
+			
 				baseController.playGame("attack");
 				
-				reactionDisplay.setText(response);
+				reactionDisplay.setText(response + "\nIt has " + baseController.enemyList.get(0).getHealth() + " HP left");
+				
+				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
+				
+//				if(baseController.enemyList.get(0).getHealth() == 0)
+//				{
+//					reactionDisplay.setText("You have murdered the " + baseController.getName());
+//				}
 			}
 		});
 		rangeAttackButton.addActionListener(new ActionListener()
@@ -104,7 +111,9 @@ public class NinjaPanel extends JPanel
 				
 				baseController.playGame("range");
 				
-				reactionDisplay.setText(response);
+				reactionDisplay.setText(response + "\nIt has " + baseController.enemyList.get(0).getHealth() + " HP left");
+				
+				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
 			}
 		});
 		luckyAttackButton.addActionListener(new ActionListener()
@@ -115,7 +124,9 @@ public class NinjaPanel extends JPanel
 				
 				baseController.playGame("lucky");
 				
-				reactionDisplay.setText(response);
+				reactionDisplay.setText(response + "\nIt has " + baseController.enemyList.get(0).getHealth() + " HP left");
+
+				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
 			}
 		});
 	}

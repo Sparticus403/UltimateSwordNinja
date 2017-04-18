@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import ninja.model.Hero;
 import java.util.Random;
 import ninja.view.*;
+import java.util.*;
 //10/10 love the name
 //your narrator is very observant
 public class NinjaController {
@@ -19,9 +20,10 @@ public class NinjaController {
 	private NinjaFrame ninjaFrame;
 	public ArrayList<Enemies> enemyList;
 	public ArrayList<Hero> heroList;
+
 	private Random randomGenerator;
 	public NinjaPanel basePanel;
-	
+
 //	 public int buttonDamage;
 	
 	
@@ -38,32 +40,31 @@ public class NinjaController {
 	
 	public void start()
 	{
-		JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
+		//JOptionPane.showMessageDialog(ninjaFrame, "welcome to SwordNinja!!!!, YOU ARE FIGHTING AN ENEMY GO AND GET EM CHAMP!");
 		
-		JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a " + enemyList.get(0).getName());
+		//JOptionPane.showMessageDialog(ninjaFrame, "On Your adventure you found a " + enemyList.get(0).getName());
 		buildEnemyList();
 		
 		buildHeroList();
 		
+		randomEnemyFromList();
+		
 		if(keepPlaying())
 		{
 			playGame("innitalNoDamage");	
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(ninjaFrame, "YOU DIED, TRY AGAIN ANOTHER TIME");
-		}
 
+		}
 	}
 	
 	
 	private void buildEnemyList()
 	{ 
-		enemyList.add(new Bear("Bear"));  //might be fixed when the enemies fully made
+		enemyList.add(new Bear("Bear"));
 		enemyList.add(new Wolf("Wolf"));
 		enemyList.add(new Samurai("Samurai"));
 	}
-	
+	//gets a random enemy from the enemyList by choosing a random number up to 15.
+	//Each enemy has their own specific range of numbers to represent themselves.
 	public Enemies randomEnemyFromList()
 	{
 		getEnemyList();
@@ -86,7 +87,6 @@ public class NinjaController {
 		
 		enemyList.set(0, currentEnemy);
 		
-
 		return currentEnemy;
 	}
 	
@@ -116,6 +116,12 @@ public class NinjaController {
 		
 		return name;
 	}
+//	public String getName()
+//	{
+//		String name = enemyList.get(0).getName();
+//		
+//		return name;
+//	}
 	
 	public boolean keepPlaying()
 	{
@@ -143,7 +149,7 @@ public class NinjaController {
 		int damage = heroList.get(0).rangeAttack();
 		
 		return damage;
-		
+
 	
 	}
 	
@@ -158,6 +164,10 @@ public class NinjaController {
 	
 	public void playGame(String attackType)
 	{
+		//randomEnemyFromList();
+		String items[] = {"toast","frog meat", "magical sword of kazomodan", "b-ball", "nes system", "kyles favorite food", "egyptian cow", "ninja blade of the third world"};
+		List<String> itemList = new ArrayList<String>();
+		
 		int damage = 0;
 		if (attackType.equals("innitalNoDamage"))
 		{
@@ -175,56 +185,39 @@ public class NinjaController {
 		{
 			damage = getRangedAttack();
 		}
-		
-		
-			
-				 if(keepPlaying())
-				 {
-					Hero currentHero = heroList.get(0);
-			
-					
-					int buttonDamage = damage;// basePanel.buttonDamage;
-					 		
+		if(keepPlaying())
+		{
+			Hero currentHero = heroList.get(0);
+			int buttonDamage = damage;
+			Enemies currentEnemy = enemyList.get(0);
+			currentEnemy.setHealth(currentEnemy.getHealth() - buttonDamage); 
+			currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
+			if(currentEnemy.getHealth() <=0)
+			{
+				itemList.add(items[0]);
+				itemList.add(items[1]);
+				itemList.add(items[2]);
+				itemList.add(items[3]);
+				itemList.add(items[4]);
+				itemList.add(items[5]);
+				itemList.add(items[6]);
+				itemList.add(items[7]);
+				JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found  " + itemList.get((int) (Math.random() * 6)) + " item. Wow so cool!");
+				 		
+				JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested. \n Time to kill another one of those same guys!");
+//						 System.exit(0);
+				currentHero.setPlayerHealth(30);
+						 
+				enemyList.get(0).setHealth(enemyList.get(0).getMaxHealth());
+			}
 
-//					int index = randomGenerator.nextInt(enemyList.size());
-					Enemies currentEnemy = enemyList.get(0);
-				
-					
-//					if(buttonPressed = true)	
-					
-						
-					currentEnemy.setHealth(currentEnemy.getHealth() - buttonDamage); 
-
-					 JOptionPane.showMessageDialog(ninjaFrame, "You hit the foe, and it has " + currentEnemy.getHealth() + " hp left!");
-					 
-						currentHero.setPlayerHealth(currentHero.getPlayerHealth() - currentEnemy.attack());
-						 
-						 JOptionPane.showMessageDialog(ninjaFrame, "The foe hit you and you have " + currentHero.getPlayerHealth() + " hp left!");
-						 
-						 
-						 	if(currentEnemy.getHealth() <=0)
-					 			{
-						 		JOptionPane.showMessageDialog(ninjaFrame, "You killed him. You found nothing. :(");
-						 		
-						 		
-								 JOptionPane.showMessageDialog(ninjaFrame, "You went home and rested");
-								 currentHero.setPlayerHealth(30);
-								 
-								 JOptionPane.showMessageDialog(ninjaFrame, "You went to find another one");
-								 
-								 JOptionPane.showMessageDialog(ninjaFrame, "Close the game and try again, dont hit a dead body while its down :(");
-					 			}
-					
-						 	
-						 	
-						 	 if(currentHero.getPlayerHealth() <= 0 )
-							 {
-								 JOptionPane.showMessageDialog(ninjaFrame, "You DIED and cant do anything, restart to try again.");
-							 }	 	
-				 }
-				 
-				
-		}
+			if(currentHero.getPlayerHealth() <= 0 )
+			{
+				JOptionPane.showMessageDialog(ninjaFrame, "You DIED and cant do anything\n Reload to try again.");
+				System.exit(0);
+			}	 	
+		 }	 
+	}
 	
 	
 //your GUI is pretty nice. i think the idea for ur game is pretty coool!! follow me on instagrame - psaineeraj
