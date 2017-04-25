@@ -97,6 +97,8 @@ public class NinjaPanel extends JPanel
 				
 				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
 				
+				heroHealthLabel.setText("Your Health: " + baseController.heroList.get(0).getPlayerHealth());
+
 //				if(baseController.enemyList.get(0).getHealth() == 0)
 //				{
 //					reactionDisplay.setText("You have murdered the " + baseController.getName());
@@ -114,6 +116,9 @@ public class NinjaPanel extends JPanel
 				reactionDisplay.setText(response + "\nIt has " + baseController.enemyList.get(0).getHealth() + " HP left");
 				
 				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
+				
+				heroHealthLabel.setText("Your Health: " + baseController.heroList.get(0).getPlayerHealth());
+
 			}
 		});
 		luckyAttackButton.addActionListener(new ActionListener()
@@ -127,6 +132,9 @@ public class NinjaPanel extends JPanel
 				reactionDisplay.setText(response + "\nIt has " + baseController.enemyList.get(0).getHealth() + " HP left");
 
 				enemyHealthLabel.setText("Enemy Health " + baseController.enemyList.get(0).getHealth());
+				
+				heroHealthLabel.setText("Your Health: " + baseController.heroList.get(0).getPlayerHealth());
+
 			}
 		});
 	}
